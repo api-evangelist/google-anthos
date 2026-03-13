@@ -1,0 +1,74 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "anthos": "https://cloud.google.com/anthos/ns/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "VmwareCluster": {
+      "@id": "anthos:VmwareCluster",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "onPremVersion": "anthos:onPremVersion",
+        "adminClusterMembership": {
+          "@id": "anthos:adminClusterMembership",
+          "@type": "@id"
+        },
+        "state": "anthos:clusterState",
+        "endpoint": {
+          "@id": "schema:url",
+          "@type": "@id"
+        },
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "BareMetalCluster": {
+      "@id": "anthos:BareMetalCluster",
+      "@context": {
+        "name": "schema:name",
+        "description": "schema:description",
+        "bareMetalVersion": "anthos:bareMetalVersion",
+        "adminClusterMembership": {
+          "@id": "anthos:adminClusterMembership",
+          "@type": "@id"
+        },
+        "state": "anthos:clusterState",
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "NodePool": {
+      "@id": "anthos:NodePool",
+      "@context": {
+        "name": "schema:name",
+        "displayName": "schema:alternateName",
+        "cpus": "anthos:cpus",
+        "memoryMb": "anthos:memoryMb",
+        "replicas": "anthos:replicas",
+        "imageType": "anthos:imageType",
+        "state": "anthos:nodePoolState",
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cloud.google.com/schemas/anthos/cluster.json",
+  "title": "Google Anthos On-Prem Cluster",
+  "description": "Schema for an Anthos on-premises cluster resource representing a Kubernetes cluster running on VMware or bare metal infrastructure.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The resource name of the cluster"
+    },
+    "description": {
+      "type": "string",
+      "description": "A human-readable description of the cluster"
+    },
+    "onPremVersion": {
+      "type": "string",
+      "description": "The Anthos on-prem version for the cluster"
+    },
+    "adminClusterMembership": {
+      "type": "string",
+      "description": "The admin cluster this user cluster is managed by"
+    },
+    "state": {
+      "type": "string",
+      "description": "Current state of the cluster",
+      "enum": ["STATE_UNSPECIFIED", "PROVISIONING", "RUNNING", "RECONCILING", "STOPPING", "ERROR", "DEGRADED"]
+    },
+    "endpoint": {
+      "type": "string",
+      "description": "The API server endpoint of the cluster"
+    },
+    "createTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the cluster was created"
+    },
+    "updateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the cluster was last updated"
+    },
+    "controlPlaneNode": {
+      "$ref": "#/$defs/ControlPlaneNodeConfig",
+      "description": "Control plane node configuration"
+    },
+    "networkConfig": {
+      "$ref": "#/$defs/NetworkConfig",
+      "description": "Network configuration for the cluster"
+    },
+    "nodePools": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/NodePool"
+      },
+      "description": "Node pools in this cluster"
+    }
+  },
+  "$defs": {
+    "ControlPlaneNodeConfig": {
+      "type": "object",
+      "description": "Configuration for control plane nodes",
+      "properties": {
+        "cpus": {
+          "type": "integer",
+          "description": "Number of CPUs for each control plane node",
+          "minimum": 1
+        },
+        "memory": {
+          "type": "integer",
+          "description": "Memory in megabytes for each control plane node",
+          "minimum": 1
+        },
+        "replicas": {
+          "type": "integer",
+          "description": "Number of control plane node replicas",
+          "minimum": 1
+        }
+      }
+    },
+    "NetworkConfig": {
+      "type": "object",
+      "description": "Network configuration for the cluster",
+      "properties": {
+        "serviceAddressCidrBlocks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "CIDR blocks for Kubernetes services"
+        },
+        "podAddressCidrBlocks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "CIDR blocks for Kubernetes pods"
+        }
+      }
+    },
+    "NodePool": {
+      "type": "object",
+      "description": "A node pool within the cluster",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Resource name of the node pool"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the node pool"
+        },
+        "cpus": {
+          "type": "integer",
+          "description": "Number of CPUs per node",
+          "minimum": 1
+        },
+        "memoryMb": {
+          "type": "integer",
+          "description": "Memory in megabytes per node",
+          "minimum": 1
+        },
+        "replicas": {
+          "type": "integer",
+          "description": "Number of node replicas",
+          "minimum": 0
+        },
+        "imageType": {
+          "type": "string",
+          "description": "OS image type for the nodes"
+        },
+        "state": {
+          "type": "string",
+          "enum": ["STATE_UNSPECIFIED", "PROVISIONING", "RUNNING", "RECONCILING", "STOPPING", "ERROR", "DEGRADED"]
+        }
+      }
+    }
+  }
+}

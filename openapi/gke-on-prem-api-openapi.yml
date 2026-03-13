@@ -1,0 +1,480 @@
+openapi: 3.1.0
+info:
+  title: Google GKE On-Prem API
+  description: >-
+    The GKE On-Prem API provides programmatic access to manage the lifecycle
+    of on-premises Kubernetes clusters running on VMware or bare metal
+    infrastructure as part of Google Distributed Cloud. It enables creating,
+    updating, deleting, and monitoring clusters, managing node pools, and
+    handling enrollment and upgrades.
+  version: v1
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/anthos/clusters/docs/on-prem-api/overview
+  termsOfService: https://cloud.google.com/terms
+externalDocs:
+  description: GKE On-Prem API Documentation
+  url: https://cloud.google.com/anthos/clusters/docs/on-prem-api/reference/rest
+servers:
+  - url: https://gkeonprem.googleapis.com/v1
+    description: Production Server
+tags:
+  - name: VmwareClusters
+    description: Operations for managing VMware-based on-premises clusters
+  - name: BareMetalClusters
+    description: Operations for managing bare metal on-premises clusters
+  - name: VmwareNodePools
+    description: Operations for managing node pools in VMware clusters
+  - name: BareMetalNodePools
+    description: Operations for managing node pools in bare metal clusters
+  - name: Operations
+    description: Operations for managing long-running operations
+security:
+  - oauth2: []
+paths:
+  /projects/{projectId}/locations/{location}/vmwareClusters:
+    get:
+      operationId: listVmwareClusters
+      summary: List VMware clusters
+      description: Lists VMware clusters in a given project and location.
+      tags:
+        - VmwareClusters
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListVmwareClustersResponse'
+    post:
+      operationId: createVmwareCluster
+      summary: Create a VMware cluster
+      description: Creates a new VMware user cluster.
+      tags:
+        - VmwareClusters
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: vmwareClusterId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VmwareCluster'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{projectId}/locations/{location}/vmwareClusters/{clusterId}:
+    get:
+      operationId: getVmwareCluster
+      summary: Get a VMware cluster
+      description: Gets the details of a VMware cluster.
+      tags:
+        - VmwareClusters
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: clusterId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VmwareCluster'
+    delete:
+      operationId: deleteVmwareCluster
+      summary: Delete a VMware cluster
+      description: Deletes a VMware user cluster.
+      tags:
+        - VmwareClusters
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: clusterId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{projectId}/locations/{location}/bareMetalClusters:
+    get:
+      operationId: listBareMetalClusters
+      summary: List bare metal clusters
+      description: Lists bare metal clusters in a given project and location.
+      tags:
+        - BareMetalClusters
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBareMetalClustersResponse'
+    post:
+      operationId: createBareMetalCluster
+      summary: Create a bare metal cluster
+      description: Creates a new bare metal user cluster.
+      tags:
+        - BareMetalClusters
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BareMetalCluster'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{projectId}/locations/{location}/vmwareClusters/{clusterId}/vmwareNodePools:
+    get:
+      operationId: listVmwareNodePools
+      summary: List VMware node pools
+      description: Lists VMware node pools in a given VMware cluster.
+      tags:
+        - VmwareNodePools
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: clusterId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListVmwareNodePoolsResponse'
+    post:
+      operationId: createVmwareNodePool
+      summary: Create a VMware node pool
+      description: Creates a new VMware node pool in a given cluster.
+      tags:
+        - VmwareNodePools
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: clusterId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VmwareNodePool'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud resources
+  schemas:
+    VmwareCluster:
+      type: object
+      description: A VMware user cluster resource.
+      properties:
+        name:
+          type: string
+          description: The resource name of the VMware cluster.
+        description:
+          type: string
+        onPremVersion:
+          type: string
+          description: The Anthos on-prem version for the cluster.
+        adminClusterMembership:
+          type: string
+          description: The admin cluster this user cluster is managed by.
+        controlPlaneNode:
+          type: object
+          properties:
+            cpus:
+              type: integer
+            memory:
+              type: integer
+              description: Memory in megabytes.
+            replicas:
+              type: integer
+        networkConfig:
+          type: object
+          properties:
+            serviceAddressCidrBlocks:
+              type: array
+              items:
+                type: string
+            podAddressCidrBlocks:
+              type: array
+              items:
+                type: string
+        state:
+          type: string
+          enum:
+            - STATE_UNSPECIFIED
+            - PROVISIONING
+            - RUNNING
+            - RECONCILING
+            - STOPPING
+            - ERROR
+            - DEGRADED
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        endpoint:
+          type: string
+          description: The API server endpoint of the cluster.
+    BareMetalCluster:
+      type: object
+      description: A bare metal user cluster resource.
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        bareMetalVersion:
+          type: string
+        adminClusterMembership:
+          type: string
+        controlPlane:
+          type: object
+          properties:
+            controlPlaneNodePoolConfig:
+              type: object
+              properties:
+                nodePoolConfig:
+                  type: object
+                  properties:
+                    nodeConfigs:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          nodeIp:
+                            type: string
+        networkConfig:
+          type: object
+          properties:
+            islandModeCidr:
+              type: object
+              properties:
+                serviceAddressCidrBlocks:
+                  type: array
+                  items:
+                    type: string
+                podAddressCidrBlocks:
+                  type: array
+                  items:
+                    type: string
+        state:
+          type: string
+          enum:
+            - STATE_UNSPECIFIED
+            - PROVISIONING
+            - RUNNING
+            - RECONCILING
+            - STOPPING
+            - ERROR
+            - DEGRADED
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    VmwareNodePool:
+      type: object
+      description: A VMware node pool resource.
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        config:
+          type: object
+          properties:
+            cpus:
+              type: integer
+            memoryMb:
+              type: integer
+            replicas:
+              type: integer
+            imageType:
+              type: string
+            bootDiskSizeGb:
+              type: integer
+        state:
+          type: string
+          enum:
+            - STATE_UNSPECIFIED
+            - PROVISIONING
+            - RUNNING
+            - RECONCILING
+            - STOPPING
+            - ERROR
+            - DEGRADED
+        createTime:
+          type: string
+          format: date-time
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+    ListVmwareClustersResponse:
+      type: object
+      properties:
+        vmwareClusters:
+          type: array
+          items:
+            $ref: '#/components/schemas/VmwareCluster'
+        nextPageToken:
+          type: string
+    ListBareMetalClustersResponse:
+      type: object
+      properties:
+        bareMetalClusters:
+          type: array
+          items:
+            $ref: '#/components/schemas/BareMetalCluster'
+        nextPageToken:
+          type: string
+    ListVmwareNodePoolsResponse:
+      type: object
+      properties:
+        vmwareNodePools:
+          type: array
+          items:
+            $ref: '#/components/schemas/VmwareNodePool'
+        nextPageToken:
+          type: string
