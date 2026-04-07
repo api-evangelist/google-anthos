@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Google GKE On-Prem API
+  title: Google Anthos Google GKE On-Prem API
   description: >-
     The GKE On-Prem API provides programmatic access to manage the lifecycle
     of on-premises Kubernetes clusters running on VMware or bare metal
@@ -35,7 +35,7 @@ paths:
   /projects/{projectId}/locations/{location}/vmwareClusters:
     get:
       operationId: listVmwareClusters
-      summary: List VMware clusters
+      summary: Google Anthos List VMware clusters
       description: Lists VMware clusters in a given project and location.
       tags:
         - VmwareClusters
@@ -67,7 +67,7 @@ paths:
                 $ref: '#/components/schemas/ListVmwareClustersResponse'
     post:
       operationId: createVmwareCluster
-      summary: Create a VMware cluster
+      summary: Google Anthos Create a VMware cluster
       description: Creates a new VMware user cluster.
       tags:
         - VmwareClusters
@@ -102,7 +102,7 @@ paths:
   /projects/{projectId}/locations/{location}/vmwareClusters/{clusterId}:
     get:
       operationId: getVmwareCluster
-      summary: Get a VMware cluster
+      summary: Google Anthos Get a VMware cluster
       description: Gets the details of a VMware cluster.
       tags:
         - VmwareClusters
@@ -131,7 +131,7 @@ paths:
                 $ref: '#/components/schemas/VmwareCluster'
     delete:
       operationId: deleteVmwareCluster
-      summary: Delete a VMware cluster
+      summary: Google Anthos Delete a VMware cluster
       description: Deletes a VMware user cluster.
       tags:
         - VmwareClusters
@@ -161,7 +161,7 @@ paths:
   /projects/{projectId}/locations/{location}/bareMetalClusters:
     get:
       operationId: listBareMetalClusters
-      summary: List bare metal clusters
+      summary: Google Anthos List bare metal clusters
       description: Lists bare metal clusters in a given project and location.
       tags:
         - BareMetalClusters
@@ -193,7 +193,7 @@ paths:
                 $ref: '#/components/schemas/ListBareMetalClustersResponse'
     post:
       operationId: createBareMetalCluster
-      summary: Create a bare metal cluster
+      summary: Google Anthos Create a bare metal cluster
       description: Creates a new bare metal user cluster.
       tags:
         - BareMetalClusters
@@ -224,7 +224,7 @@ paths:
   /projects/{projectId}/locations/{location}/vmwareClusters/{clusterId}/vmwareNodePools:
     get:
       operationId: listVmwareNodePools
-      summary: List VMware node pools
+      summary: Google Anthos List VMware node pools
       description: Lists VMware node pools in a given VMware cluster.
       tags:
         - VmwareNodePools
@@ -253,7 +253,7 @@ paths:
                 $ref: '#/components/schemas/ListVmwareNodePoolsResponse'
     post:
       operationId: createVmwareNodePool
-      summary: Create a VMware node pool
+      summary: Google Anthos Create a VMware node pool
       description: Creates a new VMware node pool in a given cluster.
       tags:
         - VmwareNodePools
