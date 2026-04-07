@@ -19,16 +19,12 @@ servers:
   - url: https://gkeonprem.googleapis.com/v1
     description: Production Server
 tags:
-  - name: VmwareClusters
-    description: Operations for managing VMware-based on-premises clusters
   - name: BareMetalClusters
     description: Operations for managing bare metal on-premises clusters
+  - name: VmwareClusters
+    description: Operations for managing VMware-based on-premises clusters
   - name: VmwareNodePools
     description: Operations for managing node pools in VMware clusters
-  - name: BareMetalNodePools
-    description: Operations for managing node pools in bare metal clusters
-  - name: Operations
-    description: Operations for managing long-running operations
 security:
   - oauth2: []
 paths:

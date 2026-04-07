@@ -14,12 +14,12 @@ created: '2026-03-13'
 modified: '2026-03-16'
 specificationVersion: '0.19'
 tags:
-  - Kubernetes
-  - Hybrid Cloud
-  - Multi-Cloud
   - Container Platform
-  - Service Mesh
+  - Hybrid Cloud
+  - Kubernetes
+  - Multi-Cloud
   - On-Premises
+  - Service Mesh
 apis:
   - aid: google-anthos:gke-on-prem-api
     name: GKE On-Prem API
@@ -34,11 +34,11 @@ apis:
     humanURL: https://cloud.google.com/anthos/clusters/docs/on-prem-api/overview
     baseURL: https://gkeonprem.googleapis.com
     tags:
+      - Bare Metal
+      - Clusters
       - Kubernetes
       - On-Premises
-      - Clusters
       - VMware
-      - Bare Metal
     properties:
       - type: Documentation
         url: https://cloud.google.com/anthos/clusters/docs/on-prem-api/reference/rest
@@ -58,10 +58,10 @@ apis:
     humanURL: https://cloud.google.com/anthos/clusters/docs/multi-cloud
     baseURL: https://gkemulticloud.googleapis.com
     tags:
-      - Multi-Cloud
       - AWS
       - Azure
       - Clusters
+      - Multi-Cloud
     properties:
       - type: Documentation
         url: https://cloud.google.com/anthos/clusters/docs/multi-cloud
