@@ -72,6 +72,10 @@ common:
     url: https://cloud.google.com/anthos/pricing
   - type: JSON-LD
     url: json-ld/google-anthos-context.jsonld
+  - type: Integrations
+    url: https://cloud.google.com/marketplace
+integrations:
+  - name: Become a Partner
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
