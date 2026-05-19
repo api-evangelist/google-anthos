@@ -1,0 +1,142 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Anthos Google GKE On-Prem API — BareMetalClusters
+  description: 'Google Anthos Google GKE On-Prem API — BareMetalClusters. 2 operations. Lead operation: Google Anthos List
+    bare metal clusters. Self-contained Naftiko capability covering one Google Anthos business surface.'
+  tags:
+  - Google Anthos
+  - BareMetalClusters
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_ANTHOS_API_KEY: GOOGLE_ANTHOS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gke-on-prem-baremetalclusters
+    baseUri: https://gkeonprem.googleapis.com/v1
+    description: Google Anthos Google GKE On-Prem API — BareMetalClusters business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-locations-location-bareMetalClusters
+      path: /projects/{projectId}/locations/{location}/bareMetalClusters
+      operations:
+      - name: listbaremetalclusters
+        method: GET
+        description: Google Anthos List bare metal clusters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+      - name: createbaremetalcluster
+        method: POST
+        description: Google Anthos Create a bare metal cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_ANTHOS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: gke-on-prem-baremetalclusters-rest
+    port: 8080
+    description: REST adapter for Google Anthos Google GKE On-Prem API — BareMetalClusters. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/locations/{location}/baremetalclusters
+      name: projects-projectid-locations-location-baremetalclusters
+      description: REST surface for projects-projectId-locations-location-bareMetalClusters.
+      operations:
+      - method: GET
+        name: listbaremetalclusters
+        description: Google Anthos List bare metal clusters
+        call: gke-on-prem-baremetalclusters.listbaremetalclusters
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          pageSize: rest.pageSize
+          pageToken: rest.pageToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createbaremetalcluster
+        description: Google Anthos Create a bare metal cluster
+        call: gke-on-prem-baremetalclusters.createbaremetalcluster
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gke-on-prem-baremetalclusters-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Anthos Google GKE On-Prem API — BareMetalClusters. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: google-anthos-list-bare-metal
+      description: Google Anthos List bare metal clusters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gke-on-prem-baremetalclusters.listbaremetalclusters
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-anthos-create-bare-metal
+      description: Google Anthos Create a bare metal cluster
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gke-on-prem-baremetalclusters.createbaremetalcluster
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

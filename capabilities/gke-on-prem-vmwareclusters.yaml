@@ -1,0 +1,246 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Anthos Google GKE On-Prem API — VmwareClusters
+  description: 'Google Anthos Google GKE On-Prem API — VmwareClusters. 4 operations. Lead operation: Google Anthos List VMware
+    clusters. Self-contained Naftiko capability covering one Google Anthos business surface.'
+  tags:
+  - Google Anthos
+  - VmwareClusters
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_ANTHOS_API_KEY: GOOGLE_ANTHOS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: gke-on-prem-vmwareclusters
+    baseUri: https://gkeonprem.googleapis.com/v1
+    description: Google Anthos Google GKE On-Prem API — VmwareClusters business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-locations-location-vmwareClusters
+      path: /projects/{projectId}/locations/{location}/vmwareClusters
+      operations:
+      - name: listvmwareclusters
+        method: GET
+        description: Google Anthos List VMware clusters
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+      - name: createvmwarecluster
+        method: POST
+        description: Google Anthos Create a VMware cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: vmwareClusterId
+          in: query
+          type: string
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: projects-projectId-locations-location-vmwareClusters-clusterId
+      path: /projects/{projectId}/locations/{location}/vmwareClusters/{clusterId}
+      operations:
+      - name: getvmwarecluster
+        method: GET
+        description: Google Anthos Get a VMware cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: clusterId
+          in: path
+          type: string
+          required: true
+      - name: deletevmwarecluster
+        method: DELETE
+        description: Google Anthos Delete a VMware cluster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: clusterId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_ANTHOS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: gke-on-prem-vmwareclusters-rest
+    port: 8080
+    description: REST adapter for Google Anthos Google GKE On-Prem API — VmwareClusters. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/locations/{location}/vmwareclusters
+      name: projects-projectid-locations-location-vmwareclusters
+      description: REST surface for projects-projectId-locations-location-vmwareClusters.
+      operations:
+      - method: GET
+        name: listvmwareclusters
+        description: Google Anthos List VMware clusters
+        call: gke-on-prem-vmwareclusters.listvmwareclusters
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          pageSize: rest.pageSize
+          pageToken: rest.pageToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createvmwarecluster
+        description: Google Anthos Create a VMware cluster
+        call: gke-on-prem-vmwareclusters.createvmwarecluster
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          vmwareClusterId: rest.vmwareClusterId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects/{projectid}/locations/{location}/vmwareclusters/{clusterid}
+      name: projects-projectid-locations-location-vmwareclusters-clusterid
+      description: REST surface for projects-projectId-locations-location-vmwareClusters-clusterId.
+      operations:
+      - method: GET
+        name: getvmwarecluster
+        description: Google Anthos Get a VMware cluster
+        call: gke-on-prem-vmwareclusters.getvmwarecluster
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          clusterId: rest.clusterId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletevmwarecluster
+        description: Google Anthos Delete a VMware cluster
+        call: gke-on-prem-vmwareclusters.deletevmwarecluster
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          clusterId: rest.clusterId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: gke-on-prem-vmwareclusters-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Anthos Google GKE On-Prem API — VmwareClusters. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: google-anthos-list-vmware-clusters
+      description: Google Anthos List VMware clusters
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gke-on-prem-vmwareclusters.listvmwareclusters
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-anthos-create-vmware-cluster
+      description: Google Anthos Create a VMware cluster
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: gke-on-prem-vmwareclusters.createvmwarecluster
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        vmwareClusterId: tools.vmwareClusterId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-anthos-get-vmware-cluster
+      description: Google Anthos Get a VMware cluster
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: gke-on-prem-vmwareclusters.getvmwarecluster
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        clusterId: tools.clusterId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: google-anthos-delete-vmware-cluster
+      description: Google Anthos Delete a VMware cluster
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: gke-on-prem-vmwareclusters.deletevmwarecluster
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        clusterId: tools.clusterId
+      outputParameters:
+      - type: object
+        mapping: $.
