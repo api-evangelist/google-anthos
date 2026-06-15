@@ -1,0 +1,1185 @@
+{
+  "item": [
+    {
+      "id": "5f3a5fa2-cd5b-4851-a318-45d5baf0406c",
+      "name": "BareMetalClusters",
+      "description": {
+        "content": "Operations for managing bare metal on-premises clusters",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6bba3a41-5447-4105-a979-43073c690c23",
+          "name": "Google Anthos List bare metal clusters",
+          "request": {
+            "name": "Google Anthos List bare metal clusters",
+            "description": {
+              "content": "Lists bare metal clusters in a given project and location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "locations",
+                ":location",
+                "bareMetalClusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e9476d2-ac61-45be-acb8-666313f1ce3d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "locations",
+                    ":location",
+                    "bareMetalClusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bareMetalClusters\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"bareMetalVersion\": \"string\",\n      \"adminClusterMembership\": \"string\",\n      \"controlPlane\": {\n        \"controlPlaneNodePoolConfig\": {\n          \"nodePoolConfig\": {\n            \"nodeConfigs\": [\n              {\n                \"nodeIp\": \"string\"\n              },\n              {\n                \"nodeIp\": \"string\"\n              }\n            ]\n          }\n        }\n      },\n      \"networkConfig\": {\n        \"islandModeCidr\": {\n          \"serviceAddressCidrBlocks\": [\n            \"string\",\n            \"string\"\n          ],\n          \"podAddressCidrBlocks\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      },\n      \"state\": \"STOPPING\",\n      \"createTime\": \"2007-03-29T04:09:59.489Z\",\n      \"updateTime\": \"1960-07-15T03:57:57.353Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"bareMetalVersion\": \"string\",\n      \"adminClusterMembership\": \"string\",\n      \"controlPlane\": {\n        \"controlPlaneNodePoolConfig\": {\n          \"nodePoolConfig\": {\n            \"nodeConfigs\": [\n              {\n                \"nodeIp\": \"string\"\n              },\n              {\n                \"nodeIp\": \"string\"\n              }\n            ]\n          }\n        }\n      },\n      \"networkConfig\": {\n        \"islandModeCidr\": {\n          \"serviceAddressCidrBlocks\": [\n            \"string\",\n            \"string\"\n          ],\n          \"podAddressCidrBlocks\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      },\n      \"state\": \"STOPPING\",\n      \"createTime\": \"2015-05-23T01:23:57.966Z\",\n      \"updateTime\": \"1992-01-28T15:12:26.103Z\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "496953b0-3e82-4c82-8f2e-663565b67333",
+          "name": "Google Anthos Create a bare metal cluster",
+          "request": {
+            "name": "Google Anthos Create a bare metal cluster",
+            "description": {
+              "content": "Creates a new bare metal user cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "locations",
+                ":location",
+                "bareMetalClusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"bareMetalVersion\": \"<string>\",\n  \"adminClusterMembership\": \"<string>\",\n  \"controlPlane\": {\n    \"controlPlaneNodePoolConfig\": {\n      \"nodePoolConfig\": {\n        \"nodeConfigs\": [\n          {\n            \"nodeIp\": \"<string>\"\n          },\n          {\n            \"nodeIp\": \"<string>\"\n          }\n        ]\n      }\n    }\n  },\n  \"networkConfig\": {\n    \"islandModeCidr\": {\n      \"serviceAddressCidrBlocks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"podAddressCidrBlocks\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"state\": \"<string>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7604aa8b-ddbd-45dd-ae0c-79b2dfe5dd50",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "locations",
+                    ":location",
+                    "bareMetalClusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"bareMetalVersion\": \"<string>\",\n  \"adminClusterMembership\": \"<string>\",\n  \"controlPlane\": {\n    \"controlPlaneNodePoolConfig\": {\n      \"nodePoolConfig\": {\n        \"nodeConfigs\": [\n          {\n            \"nodeIp\": \"<string>\"\n          },\n          {\n            \"nodeIp\": \"<string>\"\n          }\n        ]\n      }\n    }\n  },\n  \"networkConfig\": {\n    \"islandModeCidr\": {\n      \"serviceAddressCidrBlocks\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"podAddressCidrBlocks\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  },\n  \"state\": \"<string>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"done\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1570971b-8c84-43e6-ab93-e722486a344f",
+      "name": "VmwareClusters",
+      "description": {
+        "content": "Operations for managing VMware-based on-premises clusters",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8e9ecf36-e3d6-4ac5-a8b5-79ff425fcce0",
+          "name": "Google Anthos List VMware clusters",
+          "request": {
+            "name": "Google Anthos List VMware clusters",
+            "description": {
+              "content": "Lists VMware clusters in a given project and location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "locations",
+                ":location",
+                "vmwareClusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16078318-8b3c-4cab-b3aa-544feb1ceaba",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "locations",
+                    ":location",
+                    "vmwareClusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vmwareClusters\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"onPremVersion\": \"string\",\n      \"adminClusterMembership\": \"string\",\n      \"controlPlaneNode\": {\n        \"cpus\": 6507,\n        \"memory\": 7411,\n        \"replicas\": 3542\n      },\n      \"networkConfig\": {\n        \"serviceAddressCidrBlocks\": [\n          \"string\",\n          \"string\"\n        ],\n        \"podAddressCidrBlocks\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"state\": \"PROVISIONING\",\n      \"createTime\": \"1984-02-20T15:02:03.069Z\",\n      \"updateTime\": \"1995-09-26T20:57:56.622Z\",\n      \"endpoint\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"onPremVersion\": \"string\",\n      \"adminClusterMembership\": \"string\",\n      \"controlPlaneNode\": {\n        \"cpus\": 6127,\n        \"memory\": 9397,\n        \"replicas\": 1345\n      },\n      \"networkConfig\": {\n        \"serviceAddressCidrBlocks\": [\n          \"string\",\n          \"string\"\n        ],\n        \"podAddressCidrBlocks\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"state\": \"STATE_UNSPECIFIED\",\n      \"createTime\": \"1990-04-23T07:07:16.532Z\",\n      \"updateTime\": \"2008-04-06T11:16:34.310Z\",\n      \"endpoint\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2f004f6-0a74-40a9-a10c-c204ed788e5c",
+          "name": "Google Anthos Create a VMware cluster",
+          "request": {
+            "name": "Google Anthos Create a VMware cluster",
+            "description": {
+              "content": "Creates a new VMware user cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "locations",
+                ":location",
+                "vmwareClusters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "vmwareClusterId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"onPremVersion\": \"<string>\",\n  \"adminClusterMembership\": \"<string>\",\n  \"controlPlaneNode\": {\n    \"cpus\": \"<integer>\",\n    \"memory\": \"<integer>\",\n    \"replicas\": \"<integer>\"\n  },\n  \"networkConfig\": {\n    \"serviceAddressCidrBlocks\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"podAddressCidrBlocks\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"state\": \"<string>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"endpoint\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c070bbe2-df95-4479-af4a-4a5b2c9c315f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "locations",
+                    ":location",
+                    "vmwareClusters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "vmwareClusterId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"onPremVersion\": \"<string>\",\n  \"adminClusterMembership\": \"<string>\",\n  \"controlPlaneNode\": {\n    \"cpus\": \"<integer>\",\n    \"memory\": \"<integer>\",\n    \"replicas\": \"<integer>\"\n  },\n  \"networkConfig\": {\n    \"serviceAddressCidrBlocks\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"podAddressCidrBlocks\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"state\": \"<string>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\",\n  \"endpoint\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"done\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbf7ed84-220b-4d97-bcbc-3bc31f6c0f24",
+          "name": "Google Anthos Get a VMware cluster",
+          "request": {
+            "name": "Google Anthos Get a VMware cluster",
+            "description": {
+              "content": "Gets the details of a VMware cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "locations",
+                ":location",
+                "vmwareClusters",
+                ":clusterId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fa0fd89-e71c-43bd-8b55-cb6bd03f993f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "locations",
+                    ":location",
+                    "vmwareClusters",
+                    ":clusterId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"onPremVersion\": \"string\",\n  \"adminClusterMembership\": \"string\",\n  \"controlPlaneNode\": {\n    \"cpus\": 6286,\n    \"memory\": 5840,\n    \"replicas\": 743\n  },\n  \"networkConfig\": {\n    \"serviceAddressCidrBlocks\": [\n      \"string\",\n      \"string\"\n    ],\n    \"podAddressCidrBlocks\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"state\": \"RUNNING\",\n  \"createTime\": \"1961-06-03T19:51:54.859Z\",\n  \"updateTime\": \"1948-03-05T10:05:29.199Z\",\n  \"endpoint\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c7389ab-b150-4c6d-9af5-3694ed51188d",
+          "name": "Google Anthos Delete a VMware cluster",
+          "request": {
+            "name": "Google Anthos Delete a VMware cluster",
+            "description": {
+              "content": "Deletes a VMware user cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "locations",
+                ":location",
+                "vmwareClusters",
+                ":clusterId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6b111f2-ed6d-4ddf-84f5-f50362109871",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "locations",
+                    ":location",
+                    "vmwareClusters",
+                    ":clusterId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"done\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bd3d191b-08dc-4173-90c7-361f81ce71de",
+      "name": "VmwareNodePools",
+      "description": {
+        "content": "Operations for managing node pools in VMware clusters",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cbf1dfd4-70c1-44f5-beef-b4de22b31970",
+          "name": "Google Anthos List VMware node pools",
+          "request": {
+            "name": "Google Anthos List VMware node pools",
+            "description": {
+              "content": "Lists VMware node pools in a given VMware cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "locations",
+                ":location",
+                "vmwareClusters",
+                ":clusterId",
+                "vmwareNodePools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3b3c658-e3f8-46e4-a0f2-e2e5a93a2e34",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "locations",
+                    ":location",
+                    "vmwareClusters",
+                    ":clusterId",
+                    "vmwareNodePools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vmwareNodePools\": [\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"config\": {\n        \"cpus\": 3481,\n        \"memoryMb\": 7297,\n        \"replicas\": 1609,\n        \"imageType\": \"string\",\n        \"bootDiskSizeGb\": 7662\n      },\n      \"state\": \"ERROR\",\n      \"createTime\": \"1967-11-25T15:46:35.202Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"displayName\": \"string\",\n      \"config\": {\n        \"cpus\": 2534,\n        \"memoryMb\": 383,\n        \"replicas\": 9681,\n        \"imageType\": \"string\",\n        \"bootDiskSizeGb\": 4091\n      },\n      \"state\": \"STOPPING\",\n      \"createTime\": \"2024-10-08T12:51:14.077Z\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eca32386-a9b7-41e2-88b9-4781ca297730",
+          "name": "Google Anthos Create a VMware node pool",
+          "request": {
+            "name": "Google Anthos Create a VMware node pool",
+            "description": {
+              "content": "Creates a new VMware node pool in a given cluster.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "locations",
+                ":location",
+                "vmwareClusters",
+                ":clusterId",
+                "vmwareNodePools"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "clusterId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"config\": {\n    \"cpus\": \"<integer>\",\n    \"memoryMb\": \"<integer>\",\n    \"replicas\": \"<integer>\",\n    \"imageType\": \"<string>\",\n    \"bootDiskSizeGb\": \"<integer>\"\n  },\n  \"state\": \"<string>\",\n  \"createTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8027b1f3-4caa-43d0-9fad-39902c6063e0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "locations",
+                    ":location",
+                    "vmwareClusters",
+                    ":clusterId",
+                    "vmwareNodePools"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "clusterId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"config\": {\n    \"cpus\": \"<integer>\",\n    \"memoryMb\": \"<integer>\",\n    \"replicas\": \"<integer>\",\n    \"imageType\": \"<string>\",\n    \"bootDiskSizeGb\": \"<integer>\"\n  },\n  \"state\": \"<string>\",\n  \"createTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"done\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://gkeonprem.googleapis.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "09d44a03-0f53-435b-a765-ca6f5f7b4779",
+    "name": "Google Anthos Google GKE On-Prem API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The GKE On-Prem API provides programmatic access to manage the lifecycle of on-premises Kubernetes clusters running on VMware or bare metal infrastructure as part of Google Distributed Cloud. It enables creating, updating, deleting, and monitoring clusters, managing node pools, and handling enrollment and upgrades.\n\nContact Support:\n Name: Google Cloud Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,287 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Anthos Google GKE On-Prem API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VmwareClusters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Anthos List VMware clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gkeonprem.googleapis.com/v1/projects/:projectId/locations/:location/vmwareClusters",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists VMware clusters in a given project and location."
+        },
+        {
+          "info": {
+            "name": "Google Anthos Create a VMware cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gkeonprem.googleapis.com/v1/projects/:projectId/locations/:location/vmwareClusters",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "vmwareClusterId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new VMware user cluster."
+        },
+        {
+          "info": {
+            "name": "Google Anthos Get a VMware cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gkeonprem.googleapis.com/v1/projects/:projectId/locations/:location/vmwareClusters/:clusterId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the details of a VMware cluster."
+        },
+        {
+          "info": {
+            "name": "Google Anthos Delete a VMware cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://gkeonprem.googleapis.com/v1/projects/:projectId/locations/:location/vmwareClusters/:clusterId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a VMware user cluster."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "BareMetalClusters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Anthos List bare metal clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gkeonprem.googleapis.com/v1/projects/:projectId/locations/:location/bareMetalClusters",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists bare metal clusters in a given project and location."
+        },
+        {
+          "info": {
+            "name": "Google Anthos Create a bare metal cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gkeonprem.googleapis.com/v1/projects/:projectId/locations/:location/bareMetalClusters",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new bare metal user cluster."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "VmwareNodePools",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Anthos List VMware node pools",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gkeonprem.googleapis.com/v1/projects/:projectId/locations/:location/vmwareClusters/:clusterId/vmwareNodePools",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Lists VMware node pools in a given VMware cluster."
+        },
+        {
+          "info": {
+            "name": "Google Anthos Create a VMware node pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gkeonprem.googleapis.com/v1/projects/:projectId/locations/:location/vmwareClusters/:clusterId/vmwareNodePools",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "clusterId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new VMware node pool in a given cluster."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
