@@ -6,7 +6,7 @@ description: >-
   on-premises data centers, Google Cloud, and other public clouds like AWS and Azure, with centralized management,
   policy enforcement, and service mesh capabilities.
 type: Index
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-anthos/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -26,7 +26,7 @@ apis:
       running on VMware or bare metal infrastructure as part of Google Distributed Cloud. Developers can use the API to
       create, update, delete, and monitor on-premises clusters, manage node pools, and handle cluster enrollment and
       upgrades through the Google Cloud control plane.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://cloud.google.com/anthos/clusters/docs/on-prem-api/overview
     baseURL: https://gkeonprem.googleapis.com
     tags:
@@ -48,7 +48,7 @@ apis:
       The Anthos Multicloud API provides programmatic access to manage Anthos clusters running on other public clouds
       such as AWS and Azure. Developers can use the API to create, update, and delete attached clusters and manage node
       pools on external cloud providers while maintaining centralized management through Google Cloud.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://cloud.google.com/anthos/clusters/docs/multi-cloud
     baseURL: https://gkemulticloud.googleapis.com
     tags:
