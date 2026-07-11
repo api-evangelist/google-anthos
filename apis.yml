@@ -60,6 +60,12 @@ apis:
       - type: Documentation
         url: https://cloud.google.com/anthos/clusters/docs/multi-cloud
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-anthos-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-anthos-domain-security.yml
+  - type: Authentication
+    url: authentication/google-anthos-authentication.yml
   - type: OAuthScopes
     url: scopes/google-anthos-scopes.yml
   - type: GitHubOrganization
