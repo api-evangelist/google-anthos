@@ -60,6 +60,8 @@ apis:
       - type: Documentation
         url: https://cloud.google.com/anthos/clusters/docs/multi-cloud
 common:
+  - type: OAuthScopes
+    url: scopes/google-anthos-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/GoogleCloudPlatform
   - type: GettingStarted
