@@ -60,6 +60,8 @@ apis:
       - type: Documentation
         url: https://cloud.google.com/anthos/clusters/docs/multi-cloud
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-anthos-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-anthos-vulnerability-disclosure.yml
   - type: DomainSecurity
