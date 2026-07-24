@@ -1,0 +1,169 @@
+openapi: 3.1.0
+info:
+  title: Google Anthos Google GKE On-Prem BareMetalClusters API
+  description: The GKE On-Prem API provides programmatic access to manage the lifecycle of on-premises Kubernetes clusters running on VMware or bare metal infrastructure as part of Google Distributed Cloud. It enables creating, updating, deleting, and monitoring clusters, managing node pools, and handling enrollment and upgrades.
+  version: v1
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/anthos/clusters/docs/on-prem-api/overview
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://gkeonprem.googleapis.com/v1
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: BareMetalClusters
+  description: Operations for managing bare metal on-premises clusters
+paths:
+  /projects/{projectId}/locations/{location}/bareMetalClusters:
+    get:
+      operationId: listBareMetalClusters
+      summary: Google Anthos List bare metal clusters
+      description: Lists bare metal clusters in a given project and location.
+      tags:
+      - BareMetalClusters
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBareMetalClustersResponse'
+    post:
+      operationId: createBareMetalCluster
+      summary: Google Anthos Create a bare metal cluster
+      description: Creates a new bare metal user cluster.
+      tags:
+      - BareMetalClusters
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BareMetalCluster'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+components:
+  schemas:
+    ListBareMetalClustersResponse:
+      type: object
+      properties:
+        bareMetalClusters:
+          type: array
+          items:
+            $ref: '#/components/schemas/BareMetalCluster'
+        nextPageToken:
+          type: string
+    BareMetalCluster:
+      type: object
+      description: A bare metal user cluster resource.
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        bareMetalVersion:
+          type: string
+        adminClusterMembership:
+          type: string
+        controlPlane:
+          type: object
+          properties:
+            controlPlaneNodePoolConfig:
+              type: object
+              properties:
+                nodePoolConfig:
+                  type: object
+                  properties:
+                    nodeConfigs:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          nodeIp:
+                            type: string
+        networkConfig:
+          type: object
+          properties:
+            islandModeCidr:
+              type: object
+              properties:
+                serviceAddressCidrBlocks:
+                  type: array
+                  items:
+                    type: string
+                podAddressCidrBlocks:
+                  type: array
+                  items:
+                    type: string
+        state:
+          type: string
+          enum:
+          - STATE_UNSPECIFIED
+          - PROVISIONING
+          - RUNNING
+          - RECONCILING
+          - STOPPING
+          - ERROR
+          - DEGRADED
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud resources
+externalDocs:
+  description: GKE On-Prem API Documentation
+  url: https://cloud.google.com/anthos/clusters/docs/on-prem-api/reference/rest

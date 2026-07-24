@@ -1,0 +1,229 @@
+openapi: 3.1.0
+info:
+  title: Google Anthos Google GKE On-Prem BareMetalClusters VmwareClusters API
+  description: The GKE On-Prem API provides programmatic access to manage the lifecycle of on-premises Kubernetes clusters running on VMware or bare metal infrastructure as part of Google Distributed Cloud. It enables creating, updating, deleting, and monitoring clusters, managing node pools, and handling enrollment and upgrades.
+  version: v1
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/anthos/clusters/docs/on-prem-api/overview
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://gkeonprem.googleapis.com/v1
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: VmwareClusters
+  description: Operations for managing VMware-based on-premises clusters
+paths:
+  /projects/{projectId}/locations/{location}/vmwareClusters:
+    get:
+      operationId: listVmwareClusters
+      summary: Google Anthos List VMware clusters
+      description: Lists VMware clusters in a given project and location.
+      tags:
+      - VmwareClusters
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListVmwareClustersResponse'
+    post:
+      operationId: createVmwareCluster
+      summary: Google Anthos Create a VMware cluster
+      description: Creates a new VMware user cluster.
+      tags:
+      - VmwareClusters
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: vmwareClusterId
+        in: query
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VmwareCluster'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{projectId}/locations/{location}/vmwareClusters/{clusterId}:
+    get:
+      operationId: getVmwareCluster
+      summary: Google Anthos Get a VMware cluster
+      description: Gets the details of a VMware cluster.
+      tags:
+      - VmwareClusters
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: clusterId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VmwareCluster'
+    delete:
+      operationId: deleteVmwareCluster
+      summary: Google Anthos Delete a VMware cluster
+      description: Deletes a VMware user cluster.
+      tags:
+      - VmwareClusters
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: clusterId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+components:
+  schemas:
+    VmwareCluster:
+      type: object
+      description: A VMware user cluster resource.
+      properties:
+        name:
+          type: string
+          description: The resource name of the VMware cluster.
+        description:
+          type: string
+        onPremVersion:
+          type: string
+          description: The Anthos on-prem version for the cluster.
+        adminClusterMembership:
+          type: string
+          description: The admin cluster this user cluster is managed by.
+        controlPlaneNode:
+          type: object
+          properties:
+            cpus:
+              type: integer
+            memory:
+              type: integer
+              description: Memory in megabytes.
+            replicas:
+              type: integer
+        networkConfig:
+          type: object
+          properties:
+            serviceAddressCidrBlocks:
+              type: array
+              items:
+                type: string
+            podAddressCidrBlocks:
+              type: array
+              items:
+                type: string
+        state:
+          type: string
+          enum:
+          - STATE_UNSPECIFIED
+          - PROVISIONING
+          - RUNNING
+          - RECONCILING
+          - STOPPING
+          - ERROR
+          - DEGRADED
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+        endpoint:
+          type: string
+          description: The API server endpoint of the cluster.
+    ListVmwareClustersResponse:
+      type: object
+      properties:
+        vmwareClusters:
+          type: array
+          items:
+            $ref: '#/components/schemas/VmwareCluster'
+        nextPageToken:
+          type: string
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud resources
+externalDocs:
+  description: GKE On-Prem API Documentation
+  url: https://cloud.google.com/anthos/clusters/docs/on-prem-api/reference/rest
