@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Anthos Google GKE On-Prem BareMetalClusters API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BareMetalClusters",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Anthos List bare metal clusters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://gkeonprem.googleapis.com/v1/projects/:projectId/locations/:location/bareMetalClusters",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists bare metal clusters in a given project and location."
+        },
+        {
+          "info": {
+            "name": "Google Anthos Create a bare metal cluster",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://gkeonprem.googleapis.com/v1/projects/:projectId/locations/:location/bareMetalClusters",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new bare metal user cluster."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
