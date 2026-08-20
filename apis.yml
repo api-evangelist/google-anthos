@@ -45,6 +45,11 @@ apis:
   tags:
   - AWS
   - Azure
+  - Cluster
+  - Multi-Cloud
+  tags_raw:
+  - AWS
+  - Azure
   - Clusters
   - Multi-Cloud
   properties:
