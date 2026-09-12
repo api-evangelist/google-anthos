@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Google Anthos Google GKE On-Prem BareMetalClusters API
+  title: Google Anthos Google GKE On-Prem Bare Metal Clusters API
   description: The GKE On-Prem API provides programmatic access to manage the lifecycle of on-premises Kubernetes clusters running on VMware or bare metal infrastructure as part of Google Distributed Cloud. It enables creating, updating, deleting, and monitoring clusters, managing node pools, and handling enrollment and upgrades.
   version: v1
   contact:
@@ -81,15 +81,13 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   schemas:
-    ListBareMetalClustersResponse:
+    Operation:
       type: object
       properties:
-        bareMetalClusters:
-          type: array
-          items:
-            $ref: '#/components/schemas/BareMetalCluster'
-        nextPageToken:
+        name:
           type: string
+        done:
+          type: boolean
     BareMetalCluster:
       type: object
       description: A bare metal user cluster resource.
@@ -148,13 +146,15 @@ components:
         updateTime:
           type: string
           format: date-time
-    Operation:
+    ListBareMetalClustersResponse:
       type: object
       properties:
-        name:
+        bareMetalClusters:
+          type: array
+          items:
+            $ref: '#/components/schemas/BareMetalCluster'
+        nextPageToken:
           type: string
-        done:
-          type: boolean
   securitySchemes:
     oauth2:
       type: oauth2
