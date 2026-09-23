@@ -1,9 +1,7 @@
 {
   "provider": "google-anthos",
   "sources": [
-    "google-anthos-baremetalclusters-api-openapi.yml",
-    "google-anthos-vmwareclusters-api-openapi.yml",
-    "google-anthos-vmwarenodepools-api-openapi.yml"
+    "_original/gke-on-prem-api-openapi.yml"
   ],
   "outputs": [
     "google-anthos-baremetalclusters-api-openapi.yml",
@@ -14,10 +12,13 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "google-anthos-baremetalclusters-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-anthos-vmwareclusters-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-anthos-vmwarenodepools-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "gke-on-prem-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "google-anthos-baremetalclusters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-anthos-vmwareclusters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-anthos-vmwarenodepools-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

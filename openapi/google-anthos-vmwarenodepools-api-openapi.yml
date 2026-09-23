@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Anthos Google GKE On-Prem BareMetalClusters Vmware Node Pools API
+  title: Google Anthos Google GKE On-Prem Vmware Node Pools API
   description: The GKE On-Prem API provides programmatic access to manage the lifecycle of on-premises Kubernetes clusters running on VMware or bare metal infrastructure as part of Google Distributed Cloud. It enables creating, updating, deleting, and monitoring clusters, managing node pools, and handling enrollment and upgrades.
   version: v1
   contact:
@@ -83,13 +83,15 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   schemas:
-    Operation:
+    ListVmwareNodePoolsResponse:
       type: object
       properties:
-        name:
+        vmwareNodePools:
+          type: array
+          items:
+            $ref: '#/components/schemas/VmwareNodePool'
+        nextPageToken:
           type: string
-        done:
-          type: boolean
     VmwareNodePool:
       type: object
       description: A VMware node pool resource.
@@ -124,15 +126,13 @@ components:
         createTime:
           type: string
           format: date-time
-    ListVmwareNodePoolsResponse:
+    Operation:
       type: object
       properties:
-        vmwareNodePools:
-          type: array
-          items:
-            $ref: '#/components/schemas/VmwareNodePool'
-        nextPageToken:
+        name:
           type: string
+        done:
+          type: boolean
   securitySchemes:
     oauth2:
       type: oauth2
