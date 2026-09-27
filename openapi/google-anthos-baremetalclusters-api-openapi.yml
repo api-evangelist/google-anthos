@@ -81,13 +81,15 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   schemas:
-    Operation:
+    ListBareMetalClustersResponse:
       type: object
       properties:
-        name:
+        bareMetalClusters:
+          type: array
+          items:
+            $ref: '#/components/schemas/BareMetalCluster'
+        nextPageToken:
           type: string
-        done:
-          type: boolean
     BareMetalCluster:
       type: object
       description: A bare metal user cluster resource.
@@ -146,15 +148,13 @@ components:
         updateTime:
           type: string
           format: date-time
-    ListBareMetalClustersResponse:
+    Operation:
       type: object
       properties:
-        bareMetalClusters:
-          type: array
-          items:
-            $ref: '#/components/schemas/BareMetalCluster'
-        nextPageToken:
+        name:
           type: string
+        done:
+          type: boolean
   securitySchemes:
     oauth2:
       type: oauth2

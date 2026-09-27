@@ -144,6 +144,15 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   schemas:
+    ListVmwareClustersResponse:
+      type: object
+      properties:
+        vmwareClusters:
+          type: array
+          items:
+            $ref: '#/components/schemas/VmwareCluster'
+        nextPageToken:
+          type: string
     VmwareCluster:
       type: object
       description: A VMware user cluster resource.
@@ -206,15 +215,6 @@ components:
           type: string
         done:
           type: boolean
-    ListVmwareClustersResponse:
-      type: object
-      properties:
-        vmwareClusters:
-          type: array
-          items:
-            $ref: '#/components/schemas/VmwareCluster'
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
