@@ -144,15 +144,6 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   schemas:
-    ListVmwareClustersResponse:
-      type: object
-      properties:
-        vmwareClusters:
-          type: array
-          items:
-            $ref: '#/components/schemas/VmwareCluster'
-        nextPageToken:
-          type: string
     VmwareCluster:
       type: object
       description: A VMware user cluster resource.
@@ -208,6 +199,15 @@ components:
         endpoint:
           type: string
           description: The API server endpoint of the cluster.
+    ListVmwareClustersResponse:
+      type: object
+      properties:
+        vmwareClusters:
+          type: array
+          items:
+            $ref: '#/components/schemas/VmwareCluster'
+        nextPageToken:
+          type: string
     Operation:
       type: object
       properties:
