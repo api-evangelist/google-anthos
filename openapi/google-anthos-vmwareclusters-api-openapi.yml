@@ -144,6 +144,13 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   schemas:
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
     VmwareCluster:
       type: object
       description: A VMware user cluster resource.
@@ -208,13 +215,6 @@ components:
             $ref: '#/components/schemas/VmwareCluster'
         nextPageToken:
           type: string
-    Operation:
-      type: object
-      properties:
-        name:
-          type: string
-        done:
-          type: boolean
   securitySchemes:
     oauth2:
       type: oauth2

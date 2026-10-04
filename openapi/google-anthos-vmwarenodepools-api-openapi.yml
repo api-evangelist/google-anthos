@@ -90,15 +90,6 @@ components:
           type: string
         done:
           type: boolean
-    ListVmwareNodePoolsResponse:
-      type: object
-      properties:
-        vmwareNodePools:
-          type: array
-          items:
-            $ref: '#/components/schemas/VmwareNodePool'
-        nextPageToken:
-          type: string
     VmwareNodePool:
       type: object
       description: A VMware node pool resource.
@@ -133,6 +124,15 @@ components:
         createTime:
           type: string
           format: date-time
+    ListVmwareNodePoolsResponse:
+      type: object
+      properties:
+        vmwareNodePools:
+          type: array
+          items:
+            $ref: '#/components/schemas/VmwareNodePool'
+        nextPageToken:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2
