@@ -110,6 +110,9 @@ apis:
   - type: JSONSchema
     url: json-schema/google-anthos-cluster-schema.json
 common:
+  - type: CapabilityMap
+    url: capabilities/google-anthos-capability-edges.yml
+    name: Google Anthos Business Capability Map
   - type: Website
     url: https://www.google.com/
   - type: AgenticAccess

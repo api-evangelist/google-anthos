@@ -1,0 +1,44 @@
+slug: google-anthos
+provider: Google Anthos
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: BareMetalClusters
+  spec_file: google-anthos-baremetalclusters-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: '"createBareMetalCluster  Google Anthos Create a bare metal cluster"; doc: "manage the lifecycle
+    of on-premises Kubernetes clusters running on VMware or bare metal infrastructure"'
+  reason: Operations provision and enumerate on-premises Kubernetes clusters on bare metal hardware. This
+    is compute/cluster infrastructure provisioning, mapping to IT Infrastructure Management.
+- tag: VmwareClusters
+  spec_file: google-anthos-vmwareclusters-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.85
+  evidence: '"createVmwareCluster  Google Anthos Create a VMware cluster"; "deleteVmwareCluster"'
+  reason: Full CRUD lifecycle over VMware-hosted Kubernetes clusters — compute infrastructure provisioning
+    and teardown, i.e. IT Infrastructure Management.
+- tag: VmwareNodePools
+  spec_file: google-anthos-vmwarenodepools-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.8
+  evidence: '"createVmwareNodePool  Google Anthos Create a VMware node pool"; schema VmwareNodePool'
+  reason: Node pools are the compute capacity units of a Kubernetes cluster; creating and listing them
+    is infrastructure (compute) management. Slightly lower confidence as it could also be read as capacity
+    management, but the operations are provisioning, not forecasting.
