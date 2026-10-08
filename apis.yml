@@ -110,6 +110,12 @@ apis:
   - type: JSONSchema
     url: json-schema/google-anthos-cluster-schema.json
 common:
+  - type: Plans
+    url: plans/google-anthos-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/google-anthos-rate-limits.yml
+  - type: FinOps
+    url: finops/google-anthos-finops.yml
   - type: CapabilityMap
     url: capabilities/google-anthos-capability-edges.yml
     name: Google Anthos Business Capability Map
