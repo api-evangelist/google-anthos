@@ -83,13 +83,6 @@ paths:
                 $ref: '#/components/schemas/Operation'
 components:
   schemas:
-    Operation:
-      type: object
-      properties:
-        name:
-          type: string
-        done:
-          type: boolean
     VmwareNodePool:
       type: object
       description: A VMware node pool resource.
@@ -124,6 +117,13 @@ components:
         createTime:
           type: string
           format: date-time
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
     ListVmwareNodePoolsResponse:
       type: object
       properties:

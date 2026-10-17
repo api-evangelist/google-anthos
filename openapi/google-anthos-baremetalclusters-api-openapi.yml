@@ -139,13 +139,6 @@ components:
         updateTime:
           type: string
           format: date-time
-    Operation:
-      type: object
-      properties:
-        name:
-          type: string
-        done:
-          type: boolean
     ListBareMetalClustersResponse:
       type: object
       properties:
@@ -155,6 +148,13 @@ components:
             $ref: '#/components/schemas/BareMetalCluster'
         nextPageToken:
           type: string
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        done:
+          type: boolean
   securitySchemes:
     oauth2:
       type: oauth2
