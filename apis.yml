@@ -56,7 +56,7 @@ apis:
   baseURL: https://gkemulticloud.googleapis.com
   tags:
   - AWS
-  - Azure
+  - Microsoft Azure
   - Cluster
   - Multi-Cloud
   tags_raw:
