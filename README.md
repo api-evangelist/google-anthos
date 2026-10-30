@@ -1,4 +1,4 @@
-# Google Anthos (google-anthos)
+# Google Anthos
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,80 +66,146 @@
 
 Google Anthos is a managed application platform that extends Google Cloud services and engineering practices to hybrid and multi-cloud environments. Built on Kubernetes, Anthos enables consistent development and operations across on-premises data centers, Google Cloud, and other public clouds like AWS and Azure, with centralized management, policy enforcement, and service mesh capabilities.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/google-anthos/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/google-anthos/refs/heads/main/apis.yml)
+**Areas:** Container Platform · Hybrid Cloud · Kubernetes · Multi-Cloud · On-Premises · Service Mesh
 
-## Scope
+## Google Anthos on APIs.io
 
-- **Type:** Index
+Everything profiled for Google Anthos is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/google-anthos/](https://apis.io/providers/google-anthos/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Container Platform
-- Hybrid Cloud
-- Kubernetes
-- Multi-Cloud
-- On-Premises
-- Service Mesh
+- [Anthos Multicloud API](https://apis.io/apis/google-anthos/anthos-multicloud-api/) — The Anthos Multicloud API provides programmatic access to manage Anthos clusters running on other public clouds such as AWS and Azure. Developers can use…
+- [Google Anthos BareMetalClusters API](https://apis.io/apis/google-anthos/google-anthos-baremetalclusters-api/) — Operations for managing bare metal on-premises clusters
+- [Google Anthos VmwareClusters API](https://apis.io/apis/google-anthos/google-anthos-vmwareclusters-api/) — Operations for managing VMware-based on-premises clusters
+- [Google Anthos VmwareNodePools API](https://apis.io/apis/google-anthos/google-anthos-vmwarenodepools-api/) — Operations for managing node pools in VMware clusters
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-13
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### GKE On-Prem API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The GKE On-Prem API provides programmatic access to manage the lifecycle of on-premises Kubernetes clusters running on VMware or bare metal infrastructure as part of Google Distributed Cloud. Developers can use the API to create, update, delete, and monitor on-premises clusters, manage node pools, and handle cluster enrollment and upgrades through the Google Cloud control plane.
+- [Google Anthos Agentic Access](https://apis.io/agentic-access/google-anthos/google-anthos-agentic-access/)
 
-- **Human URL:** [https://cloud.google.com/anthos/clusters/docs/on-prem-api/overview](https://cloud.google.com/anthos/clusters/docs/on-prem-api/overview)
-- **Base URL:** `https://gkeonprem.googleapis.com`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- Bare Metal
-- Clusters
-- Kubernetes
-- On-Premises
-- VMware
+- [Google Anthos On-Prem Cluster](https://apis.io/schemas/google-anthos/google-anthos-cluster/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://cloud.google.com/anthos/clusters/docs/on-prem-api/reference/rest)
-- [OpenAPI](openapi/gke-on-prem-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/gke-on-prem-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gke-on-prem-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/google-anthos-cluster-schema.json) — [JSON Schema](https://json-schema.org/specification)
+Linked-data contexts for the provider's vocabulary.
 
-### Anthos Multicloud API
+- [Google Anthos Context](https://apis.io/jsonld/google-anthos/google-anthos-context/)
 
-The Anthos Multicloud API provides programmatic access to manage Anthos clusters running on other public clouds such as AWS and Azure. Developers can use the API to create, update, and delete attached clusters and manage node pools on external cloud providers while maintaining centralized management through Google Cloud.
+#### Collections (4)
 
-- **Human URL:** [https://cloud.google.com/anthos/clusters/docs/multi-cloud](https://cloud.google.com/anthos/clusters/docs/multi-cloud)
-- **Base URL:** `https://gkemulticloud.googleapis.com`
+Postman and Open Collection request collections.
 
-#### Tags
+- [Google Anthos Google GKE On-Prem API](https://apis.io/collections/google-anthos/open-gke-on-prem-api/)
+- [Google Anthos Google GKE On-Prem BareMetalClusters API](https://apis.io/collections/google-anthos/open-google-anthos-baremetalclusters-api/)
+- [Google Anthos Google GKE On-Prem BareMetalClusters VmwareClusters API](https://apis.io/collections/google-anthos/open-google-anthos-vmwareclusters-api/)
+- [Google Anthos Google GKE On-Prem BareMetalClusters VmwareNodePools API](https://apis.io/collections/google-anthos/open-google-anthos-vmwarenodepools-api/)
 
-- AWS
-- Azure
-- Clusters
-- Multi-Cloud
+#### Governance rules (1)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://cloud.google.com/anthos/clusters/docs/multi-cloud)
-- [Postman Collection](collections/gke-on-prem-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/gke-on-prem-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Google Anthos — jsonschema rules](https://apis.io/rules/google-anthos/google-anthos-jsonschema-spectral-rules/)
 
-## Common Properties
+#### Security (3)
 
-- [GitHub Organization](https://github.com/GoogleCloudPlatform)
-- [Getting Started](https://cloud.google.com/anthos/docs/setup/overview)
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Google Anthos Authentication](https://apis.io/security/google-anthos/google-anthos-authentication/)
+- [Google Anthos Domain Security](https://apis.io/security/google-anthos/google-anthos-domain-security/)
+- [Google Anthos Vulnerability Disclosure](https://apis.io/security/google-anthos/google-anthos-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Google Anthos Scopes](https://apis.io/scopes/google-anthos/google-anthos-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Google Anthos Plans Pricing](https://apis.io/plans/google-anthos/google-anthos-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Google Anthos Rate Limits](https://apis.io/rate-limits/google-anthos/google-anthos-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Google Anthos Finops](https://apis.io/finops/google-anthos/google-anthos-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.google.com/)
+- [Getting started](https://cloud.google.com/anthos/docs/setup/overview)
 - [Pricing](https://cloud.google.com/anthos/pricing)
-- [JSON-LD](json-ld/google-anthos-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Integrations](https://cloud.google.com/marketplace)
+- [GitHub](https://github.com/GoogleCloudPlatform)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 35.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 56.1 |
+| Contract governance | 9.8 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 18.4 |
+
+**Agent readiness 22.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 32.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/google-anthos/](https://apis.io/providers/google-anthos/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Google Anthos: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/google-anthos/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
